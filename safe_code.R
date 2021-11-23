@@ -1,0 +1,23 @@
+# 체감 안전도
+
+#
+setwd("C:/Users/daybi/Documents/Titano/competi/DataMapstory(211119)/체감안전도")
+
+library(XML)
+
+#
+list.files()
+file_list <- list.files()
+file_list
+
+
+safe <- NULL
+for (i in 1:length(file_list)){
+  file <- read.csv(file_list[i],header = F,fileEncoding = "utf-8")
+  safe <- rbind(safe,file)
+  cat("\n", i)
+}
+
+names(safe) <- c("TRGET_YM","POLC_NM","SURVEY_TARGET_CNT_TOTAL","SURVEY_TARGET_CNT_AREA1","SURVEY_TARGET_CNT_AREA2","SURVEY_TARGET_CNT_AREA3","SURVEY_TARGET_CNT_MALE","SURVEY_TARGET_CNT_FEMALE","SURVEY_TARGET_CNT_AGE_20_LESS","SURVEY_TARGET_CNT_AGE_30","SURVEY_TARGET_CNT_AGE_40","SURVEY_TARGET_CNT_AGE_50","SURVEY_TARGET_CNT_AGE_60_OVER","GNRLZ_SENS_SAFECHK_SCORE","GNRL_SENS_SAFECHK_SCORE","FIELD_SAFECHK_SCORE","CRIME_SAFECHK_SCORE","TRNSPORT_INCI_SAFECHK_SCORE","LAW_ORDER_COMP_SCORE","THEFT_VIOLENCE_SAFECHK_SCORE","ROBBER_KILL_SAFECHK_SCORE","GNRL_POLC_EFFORT_SCORE")
+
+#
