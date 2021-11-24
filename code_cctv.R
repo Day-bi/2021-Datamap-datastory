@@ -13,7 +13,6 @@ data = subset(data, install>="2014-01" & install <= "2018-12") # 14년부터 18년까
 
 # 지역별로 나누기
 #서울
-
 seoul_addr = data[grep("서울특별시",data$addr),]
 seoul_name = data[grep("서울특별시",data$name),]
 seoul = merge(seoul_addr,seoul_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
@@ -38,65 +37,49 @@ Gwangju_addr = data[grep("광주광역시",data$addr),]
 Gwangju_name = data[grep("광주광역시",data$name),]
 Gwangju = merge(Gwangju_addr,Gwangju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#광주
+#대전
 Daejeon_addr = data[grep("대전광역시",data$addr),]
 Daejeon_name = data[grep("대전광역시",data$name),]
 Daejeon = merge(Daejeon_addr,Daejeon_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#세종
-sejong_addr = data[grep("세종특별",data$addr),] 
-sejong_name = data[grep("세종특별",data$name),]
-sejong = merge(sejong_addr,sejong_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
-
 #경기도
 gyeonggi_addr = data[grep("경기도",data$addr),]
 gyeonggi_name = data[grep("경기도",data$name),]
-gyeonggi = merge(gyeonggi_addr,gyeonggi_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitudse"), all =TRUE)
-
-#경기도 수원시
-suwon_addr = data[grep("경기도 이천시",data$addr),]
-suwon_name = data[grep("경기도 이천시",data$name),]
-suwon = merge(suwon_addr,suwon_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
-
-#강원도 강릉
+gyeonggi = merge(gyeonggi_addr,gyeonggi_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#강원도
 gangwon_addr = data[grep("강원도",data$addr),]
 gangwon_name = data[grep("강원도",data$name),]
 gangwon = merge(gangwon_addr,gangwon_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#강원도 원주시
-wonju_addr = data[grep("강원도 원주시",data$addr),]
-wonju_name = data[grep("강원도 원주시",data$name),]
-wonju = merge(wonju_addr,wonju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#충청남도
+Chungnam_addr = data[grep("충청남도",data$addr),]
+Chungnam_name = data[grep("충청남도",data$name),]
+Chungnam = merge(Chungnam_addr,Chungnam_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#충청남도 천안시
-chungcheong_addr = data[grep("충청",data$addr),]
-chungcheong_name = data[grep("충청",data$name),]
-chungcheongn = merge(chungcheong_addr,chungcheong_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#충청북도
+Chungbuk_addr = data[grep("충청북도",data$addr),]
+Chungbuk_name = data[grep("충청북도",data$name),]
+Chungbuk = merge(Chungbuk_addr,Chungbuk_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#충청북도 충주시
-cheongju_addr = data[grep("충청북도",data$addr),]
-cheongju_name = data[grep("충청북도",data$name),]
-cheongju = merge(cheongju_addr,cheongju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#경상남도
+Gyeongnam_addr = data[grep("경상남도",data$addr),]
+Gyeongnam_name = data[grep("경상남도",data$name),]
+Gyeongnam = merge(Gyeongnam_addr,Gyeongnam_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#경상남도 경주시
-gyeongsang_addr = data[grep("경상",data$addr),]
-gyeongsang_name = data[grep("경상",data$name),]
-gyeongsang = merge(gyeongsang_addr,gyeongsang_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#경상북도
+Gyeongbuk_addr = data[grep("경상북도",data$addr),]
+Gyeongbuk_name = data[grep("경상북도",data$name),]
+Gyeongbuk = merge(Gyeongbuk_addr,Gyeongbuk_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#경상북도 상주시
-sangju_addr = data[grep("경상북도 상주시",data$addr),]
-sangju_name = data[grep("경상북도 상주시",data$name),]
-sangju = merge(sangju_addr,sangju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#전라북도
+Jeonbuk_addr = data[grep("전라북도",data$addr),]
+Jeonbuk_name = data[grep("전라북도",data$name),]
+Jeonbuk = merge(Jeonbuk_addr,Jeonbuk_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#전라북도 전주시
-jeonla_addr = data[grep("전라",data$addr),]
-jeonla_name = data[grep("전라",data$name),]
-jeonla = merge(jeonla_addr,jeonla_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
-
-#전라남도 나주시
-naju_addr = data[grep("전라남도 나주시",data$addr),]
-naju_name = data[grep("전라남도 나주시",data$name),]
-naju = merge(naju_addr,naju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
+#전라남도
+Jeonnam_addr = data[grep("전라남도",data$addr),]
+Jeonnam_name = data[grep("전라남도",data$name),]
+Jeonnam = merge(Jeonnam_addr,Jeonnam_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
 #제주도
 jeju_addr = data[grep("제주",data$addr),]
@@ -115,19 +98,29 @@ joined_df <- seoul %>%
   full_join(Incheon) %>% 
   full_join(Gwangju) %>% 
   full_join(Daejeon) %>% 
-  full_join(sejong) %>% 
-  full_join(goyang) %>% 
-  full_join(suwon) %>% 
-  full_join(gangleung) %>% 
-  full_join(wonju) %>% 
-  full_join(cheonan) %>% 
-  full_join(cheongju) %>% 
-  full_join(gyeongju) %>% 
-  full_join(sangju) %>% 
-  full_join(jeonju) %>% 
-  full_join(jeju) %>% 
-  full_join(naju)
+  full_join(gyeonggi) %>% 
+  full_join(gangwon) %>% 
+  full_join(Chungnam) %>% 
+  full_join(Chungbuk) %>% 
+  full_join(Gyeongnam) %>% 
+  full_join(Gyeongbuk) %>% 
+  full_join(Jeonnam) %>% 
+  full_join(Jeonbuk) %>% 
+  full_join(jeju)
   
+# 시각화
+# 나라 지도
+library('ggmap')
+register_google(key = 'AIzaSyBi0lR3YtXhXwHd6BkXdcF1ZxkBxxdmFgE')
+gc <- geocode(enc2utf8("서울")) #서울 위도 경도
+cen <- as.numeric(gc) # gc를 숫자로 변환
+map <- get_googlemap(center = cen,
+                     zoom = 7,
+                     size = c(1000,1000),
+                     maptype = 'terrain') #terrain,satellite,roadmap, hybrid
+ggmap(map)
+# cctv 위치 찍기
+
 
 
 #데이터 저장
