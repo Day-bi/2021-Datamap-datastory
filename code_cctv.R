@@ -1,92 +1,92 @@
-#ÃÖÁ¾ ÄÚµå
+#ìµœì¢… ì½”ë“œ
 setwd("C:/Users/daybi/Documents/Titano/competi/DataMapstory(211119)")
-# ÇÑ±Û ¿¡·¯ "euc-kr", "utf-8","ucs-2le"
-#µ¥ÀÌÅÍ ºÒ·¯¿À±â
+# í•œê¸€ ì—ëŸ¬ "euc-kr", "utf-8","ucs-2le"
+#ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
 library(XML)
 data = read.csv('cctv.csv')
 
-# µ¥ÀÌÅÍ Á¤Á¦
+# ë°ì´í„° ì •ì œ
 library(dplyr)
-data = data[,-c(2,6,7,8,10,13:15)] # ÇÊ¿äÇÏÁö ¾ÊÀº ÄÃ·³ »èÁ¦
-names(data) <- c("name","addr","purpose","cctvNum","install","latitude","longitude") # ÄÃ·³¸í º¯°æ
-data = subset(data, install>="2014-01" & install <= "2018-12") # 14³âºÎÅÍ 18³â±îÁö ÃßÃâ
+data = data[,-c(2,6,7,8,10,13:15)] # í•„ìš”í•˜ì§€ ì•Šì€ ì»¬ëŸ¼ ì‚­ì œ
+names(data) <- c("name","addr","purpose","cctvNum","install","latitude","longitude") # ì»¬ëŸ¼ëª… ë³€ê²½
+data = subset(data, install>="2014-01" & install <= "2018-12") # 14ë…„ë¶€í„° 18ë…„ê¹Œì§€ ì¶”ì¶œ
 
-# Áö¿ªº°·Î ³ª´©±â
-#¼­¿ï
-seoul_addr = data[grep("¼­¿ïÆ¯º°½Ã",data$addr),]
-seoul_name = data[grep("¼­¿ïÆ¯º°½Ã",data$name),]
+# ì§€ì—­ë³„ë¡œ ë‚˜ëˆ„ê¸°
+#ì„œìš¸
+seoul_addr = data[grep("ì„œìš¸íŠ¹ë³„ì‹œ",data$addr),]
+seoul_name = data[grep("ì„œìš¸íŠ¹ë³„ì‹œ",data$name),]
 seoul = merge(seoul_addr,seoul_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#ºÎ»ê
-busan_addr = data[grep("ºÎ»ê±¤¿ª½Ã",data$name),]
-busan_name = data[grep("ºÎ»ê±¤¿ª½Ã",data$name),]
+#ë¶€ì‚°
+busan_addr = data[grep("ë¶€ì‚°ê´‘ì—­ì‹œ",data$name),]
+busan_name = data[grep("ë¶€ì‚°ê´‘ì—­ì‹œ",data$name),]
 busan = merge(busan_addr,busan_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#´ë±¸ 
-daegu_addr = data[grep("´ë±¸±¤¿ª½Ã",data$addr),]
-daegu_name = data[grep("´ë±¸±¤¿ª½Ã",data$name),]
+#ëŒ€êµ¬ 
+daegu_addr = data[grep("ëŒ€êµ¬ê´‘ì—­ì‹œ",data$addr),]
+daegu_name = data[grep("ëŒ€êµ¬ê´‘ì—­ì‹œ",data$name),]
 daegu = merge(daegu_addr,daegu_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#ÀÎÃµ
-Incheon_addr = data[grep("ÀÎÃµ±¤¿ª½Ã",data$addr),]
-Incheon_name = data[grep("ÀÎÃµ±¤¿ª½Ã",data$name),]
+#ì¸ì²œ
+Incheon_addr = data[grep("ì¸ì²œê´‘ì—­ì‹œ",data$addr),]
+Incheon_name = data[grep("ì¸ì²œê´‘ì—­ì‹œ",data$name),]
 Incheon = merge(Incheon_addr,Incheon_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#±¤ÁÖ
-Gwangju_addr = data[grep("±¤ÁÖ±¤¿ª½Ã",data$addr),]
-Gwangju_name = data[grep("±¤ÁÖ±¤¿ª½Ã",data$name),]
+#ê´‘ì£¼
+Gwangju_addr = data[grep("ê´‘ì£¼ê´‘ì—­ì‹œ",data$addr),]
+Gwangju_name = data[grep("ê´‘ì£¼ê´‘ì—­ì‹œ",data$name),]
 Gwangju = merge(Gwangju_addr,Gwangju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#´ëÀü
-Daejeon_addr = data[grep("´ëÀü±¤¿ª½Ã",data$addr),]
-Daejeon_name = data[grep("´ëÀü±¤¿ª½Ã",data$name),]
+#ëŒ€ì „
+Daejeon_addr = data[grep("ëŒ€ì „ê´‘ì—­ì‹œ",data$addr),]
+Daejeon_name = data[grep("ëŒ€ì „ê´‘ì—­ì‹œ",data$name),]
 Daejeon = merge(Daejeon_addr,Daejeon_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#°æ±âµµ
-gyeonggi_addr = data[grep("°æ±âµµ",data$addr),]
-gyeonggi_name = data[grep("°æ±âµµ",data$name),]
+#ê²½ê¸°ë„
+gyeonggi_addr = data[grep("ê²½ê¸°ë„",data$addr),]
+gyeonggi_name = data[grep("ê²½ê¸°ë„",data$name),]
 gyeonggi = merge(gyeonggi_addr,gyeonggi_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
-#°­¿øµµ
-gangwon_addr = data[grep("°­¿øµµ",data$addr),]
-gangwon_name = data[grep("°­¿øµµ",data$name),]
+#ê°•ì›ë„
+gangwon_addr = data[grep("ê°•ì›ë„",data$addr),]
+gangwon_name = data[grep("ê°•ì›ë„",data$name),]
 gangwon = merge(gangwon_addr,gangwon_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#ÃæÃ»³²µµ
-Chungnam_addr = data[grep("ÃæÃ»³²µµ",data$addr),]
-Chungnam_name = data[grep("ÃæÃ»³²µµ",data$name),]
+#ì¶©ì²­ë‚¨ë„
+Chungnam_addr = data[grep("ì¶©ì²­ë‚¨ë„",data$addr),]
+Chungnam_name = data[grep("ì¶©ì²­ë‚¨ë„",data$name),]
 Chungnam = merge(Chungnam_addr,Chungnam_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#ÃæÃ»ºÏµµ
-Chungbuk_addr = data[grep("ÃæÃ»ºÏµµ",data$addr),]
-Chungbuk_name = data[grep("ÃæÃ»ºÏµµ",data$name),]
+#ì¶©ì²­ë¶ë„
+Chungbuk_addr = data[grep("ì¶©ì²­ë¶ë„",data$addr),]
+Chungbuk_name = data[grep("ì¶©ì²­ë¶ë„",data$name),]
 Chungbuk = merge(Chungbuk_addr,Chungbuk_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#°æ»ó³²µµ
-Gyeongnam_addr = data[grep("°æ»ó³²µµ",data$addr),]
-Gyeongnam_name = data[grep("°æ»ó³²µµ",data$name),]
+#ê²½ìƒë‚¨ë„
+Gyeongnam_addr = data[grep("ê²½ìƒë‚¨ë„",data$addr),]
+Gyeongnam_name = data[grep("ê²½ìƒë‚¨ë„",data$name),]
 Gyeongnam = merge(Gyeongnam_addr,Gyeongnam_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#°æ»óºÏµµ
-Gyeongbuk_addr = data[grep("°æ»óºÏµµ",data$addr),]
-Gyeongbuk_name = data[grep("°æ»óºÏµµ",data$name),]
+#ê²½ìƒë¶ë„
+Gyeongbuk_addr = data[grep("ê²½ìƒë¶ë„",data$addr),]
+Gyeongbuk_name = data[grep("ê²½ìƒë¶ë„",data$name),]
 Gyeongbuk = merge(Gyeongbuk_addr,Gyeongbuk_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#Àü¶óºÏµµ
-Jeonbuk_addr = data[grep("Àü¶óºÏµµ",data$addr),]
-Jeonbuk_name = data[grep("Àü¶óºÏµµ",data$name),]
+#ì „ë¼ë¶ë„
+Jeonbuk_addr = data[grep("ì „ë¼ë¶ë„",data$addr),]
+Jeonbuk_name = data[grep("ì „ë¼ë¶ë„",data$name),]
 Jeonbuk = merge(Jeonbuk_addr,Jeonbuk_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#Àü¶ó³²µµ
-Jeonnam_addr = data[grep("Àü¶ó³²µµ",data$addr),]
-Jeonnam_name = data[grep("Àü¶ó³²µµ",data$name),]
+#ì „ë¼ë‚¨ë„
+Jeonnam_addr = data[grep("ì „ë¼ë‚¨ë„",data$addr),]
+Jeonnam_name = data[grep("ì „ë¼ë‚¨ë„",data$name),]
 Jeonnam = merge(Jeonnam_addr,Jeonnam_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#Á¦ÁÖµµ
-jeju_addr = data[grep("Á¦ÁÖ",data$addr),]
-jeju_name = data[grep("Á¦ÁÖ",data$name),]
+#ì œì£¼ë„
+jeju_addr = data[grep("ì œì£¼",data$addr),]
+jeju_name = data[grep("ì œì£¼",data$name),]
 jeju = merge(jeju_addr,jeju_name, by=c("name","addr","purpose","cctvNum","install","latitude","longitude"), all =TRUE)
 
-#Áö¿ªº° µ¥ÀÌÅÍ ÇÑ °÷À¸·Î ÇÕÄ¡±â
+#ì§€ì—­ë³„ ë°ì´í„° í•œ ê³³ìœ¼ë¡œ í•©ì¹˜ê¸°
 library(plyr)
 df = join_all(list(seoul,busan,daegu,Incheon,Gwangju,Daejeon,sejong,goyang,suwon,gangleung,wonju,cheonan,cheongju,gyeongju,sangju,jeonju,naju,jeju))
 
@@ -108,21 +108,21 @@ joined_df <- seoul %>%
   full_join(Jeonbuk) %>% 
   full_join(jeju)
   
-# ½Ã°¢È­
-# ³ª¶ó Áöµµ
+# ì‹œê°í™”
+# ë‚˜ë¼ ì§€ë„
 library('ggmap')
-register_google(key = 'AIzaSyBi0lR3YtXhXwHd6BkXdcF1ZxkBxxdmFgE')
-gc <- geocode(enc2utf8("¼­¿ï")) #¼­¿ï À§µµ °æµµ
-cen <- as.numeric(gc) # gc¸¦ ¼ıÀÚ·Î º¯È¯
+register_google(key = 'your key')
+gc <- geocode(enc2utf8("ì„œìš¸")) #ì„œìš¸ ìœ„ë„ ê²½ë„
+cen <- as.numeric(gc) # gcë¥¼ ìˆ«ìë¡œ ë³€í™˜
 map <- get_googlemap(center = cen,
                      zoom = 7,
                      size = c(1000,1000),
                      maptype = 'terrain') #terrain,satellite,roadmap, hybrid
 ggmap(map)
-# cctv À§Ä¡ Âï±â
+# cctv ìœ„ì¹˜ ì°ê¸°
 
 
 
-#µ¥ÀÌÅÍ ÀúÀå
+#ë°ì´í„° ì €ì¥
 write.csv(joined_df,file = "data_full.csv")
 
